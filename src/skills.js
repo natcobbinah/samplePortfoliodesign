@@ -1,9 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -75,7 +73,15 @@ const  skillsData =  [
              'Git, SubVersion',
              'React, Angular, JavaScript, TypeScript',
              'Arduino, PIC, Proteus'
-    ]
+]
+
+const skillsRating = [ 
+  <PrettoSlider valueLabelDisplay="auto"  defaultValue={75} valueLabelDisplay="on"/>,
+  <PrettoSlider valueLabelDisplay="auto"  defaultValue={75} valueLabelDisplay="on"/>,
+  <PrettoSlider valueLabelDisplay="auto"  defaultValue={70} valueLabelDisplay="on"/>,
+  <PrettoSlider valueLabelDisplay="auto"  defaultValue={70} valueLabelDisplay="on"/> ,
+  <PrettoSlider valueLabelDisplay="auto"  defaultValue={60} valueLabelDisplay="on"/>
+]
 
 export default function Skills() {
   const classes = useStyles();
@@ -94,11 +100,11 @@ export default function Skills() {
             <StepLabel>{data}</StepLabel>
             <StepContent>
               <Typography>{skillsData[i]}</Typography>
-              {i === 0 ?  <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={75} valueLabelDisplay="on"/> : 
-               i === 1 ?  <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={75} valueLabelDisplay="on"/> : 
-               i === 2 ?  <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={70} valueLabelDisplay="on"/> : 
-               i === 3 ?  <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={70} valueLabelDisplay="on"/> : 
-               i === 4 ?  <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={60} valueLabelDisplay="on"/> :
+              {i === 0 ? skillsRating[0] : 
+               i === 1 ? skillsRating[1] : 
+               i === 2 ? skillsRating[2]  : 
+               i === 3 ? skillsRating[3] : 
+               i === 4 ? skillsRating[4] :
                "Nothing" 
               }
               <div className={classes.actionsContainer}></div>
