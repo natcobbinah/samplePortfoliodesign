@@ -10,6 +10,14 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 
+import LocationCitySharpIcon from '@material-ui/icons/LocationCitySharp';
+import HomeWorkSharpIcon from '@material-ui/icons/HomeWorkSharp';
+
+const workIcons = [
+  <LocationCitySharpIcon/>,
+  <HomeWorkSharpIcon/>
+]
+
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
@@ -55,7 +63,7 @@ export default function LivingandWorkPlace() {
           <Step key={data} active={true}>
             <StepLabel>{data}</StepLabel>
             <StepContent>
-              <Typography>{livingandWorkContentData[i]}</Typography>
+              <Typography>{workIcons[i] }{livingandWorkContentData[i]}</Typography>
               <div className={classes.actionsContainer}></div>
             </StepContent>
           </Step>
