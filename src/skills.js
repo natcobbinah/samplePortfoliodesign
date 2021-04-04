@@ -76,11 +76,11 @@ const  skillsData =  [
 ]
 
 const skillsRating = [ 
-  <PrettoSlider valueLabelDisplay="auto"  defaultValue={75} valueLabelDisplay="on"/>,
-  <PrettoSlider valueLabelDisplay="auto"  defaultValue={75} valueLabelDisplay="on"/>,
-  <PrettoSlider valueLabelDisplay="auto"  defaultValue={70} valueLabelDisplay="on"/>,
-  <PrettoSlider valueLabelDisplay="auto"  defaultValue={70} valueLabelDisplay="on"/> ,
-  <PrettoSlider valueLabelDisplay="auto"  defaultValue={60} valueLabelDisplay="on"/>
+  <PrettoSlider valueLabelDisplay="on" defaultValue={75} />,
+  <PrettoSlider valueLabelDisplay="on" defaultValue={75} />,
+  <PrettoSlider valueLabelDisplay="on" defaultValue={70} />,
+  <PrettoSlider valueLabelDisplay="on" defaultValue={70} />,
+  <PrettoSlider valueLabelDisplay="on" defaultValue={50} />,
 ]
 
 export default function Skills() {
