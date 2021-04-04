@@ -1,12 +1,17 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+import StepContent from '@material-ui/core/StepContent';
+import Paper from '@material-ui/core/Paper';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     minWidth: 275,
   },
@@ -15,17 +20,66 @@ const useStyles = makeStyles({
     margin: '0 2px',
     transform: 'scale(0.8)',
   },
+  button: {
+    marginTop: theme.spacing(1),
+    marginRight: theme.spacing(1),
+  },
   title: {
     fontSize: 14,
   },
   pos: {
     marginBottom: 12,
   },
-});
+  actionsContainer: {
+    marginBottom: theme.spacing(2),
+  },
+  resetContainer: {
+    padding: theme.spacing(3),
+  },
+}));
+
+function experienceStages(){
+  return[
+    'Software Developer and Engineer',
+    'Salesforce Certified Commerce Cloud digital developer',
+    'Software Development and Engineering Trainee',
+    'Teaching Assistant',
+    'Intern'
+  ]
+}
+
+const  Experiencedata =  [  
+              `Work on both frontend and backend technologies, SPA 
+               frameworks, Software testing and learning towards 
+               Advanced Computer Science degree, a dream to attain 
+               in the coming years`,
+    
+              `Adapt SFRA(Storefront Reference Architecture) to build 
+               e-commerce sites on the Salesforce Platformm, using
+               ISML templates and BM(Business Manager)`,
+    
+              `Undertook the training of acquiring and furthering my skills in IT/Digital skills
+               Training programme at Amalitech Training Academy Ltd, specializing in and majoring in 
+               Software Development and Engineering comprising, learning and coding of sample projects
+               comprising but not limited to Core Java, JEE, SPA frameworks(React & Angular), Springboot 
+               for developing restful APIs with or without HATEOS implementations, with or without Netflix
+               OSS architecture, CI / CD, and software skills comprising but not limited to Business Communication 
+               Skills, Intercultural Communication, Personal and Professional Development and Others.
+               `,
+    
+              `Taught Computer Literacy,Introduction to computing and also assisted in lecturing on 
+               on behalf of Senior Lecturers with their classes. Also took part in grading and overseeing 
+               final students with their project work defence.`,
+    
+              `A month worth internship with Takoradi Flour Mills, monitoring and servicing of network and CCTVs, and 
+               also learning industrial practice of my computing knowledge.`
+      ]
+
+
 
 export default function Experience() {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
+  const steps = experienceStages();
 
   return (
     <Card className={classes.root}>
@@ -33,22 +87,20 @@ export default function Experience() {
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           Experience
         </Typography>
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-          facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-          gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-          donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-          Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-          imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-          arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-          donec massa sapien faucibus et molestie ac.
-        </Typography>
+       
+        <Stepper nonLinear orientation="vertical">
+        {steps.map((data, i) => (
+          <Step key={data} active={true}>
+            <StepLabel>{data}</StepLabel>
+            <StepContent>
+              <Typography>{Experiencedata[i]}</Typography>
+              <div className={classes.actionsContainer}></div>
+            </StepContent>
+          </Step>
+        ))}
+        </Stepper>
+     
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
     </Card>
   );
 }

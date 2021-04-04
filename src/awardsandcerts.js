@@ -5,6 +5,10 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+import StepContent from '@material-ui/core/StepContent';
 
 const useStyles = makeStyles({
   root: {
@@ -23,9 +27,23 @@ const useStyles = makeStyles({
   },
 });
 
+function certifications(){
+  return[
+    'Salesforce Commerce Cloud Digital Developer',
+    'IELTS',
+    'Amalitech Performance Based Scholarship Graduate Training'
+  ]
+}
+
+const  Experiencedata =  [  
+             'Credential ID: 21986750',
+             'Band (8) Test Report Form Number: 19GH009920COBN001A',
+             '3X Winner',
+      ]
+
 export default function AwardsandCerts() {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
+  const steps = certifications();
 
   return (
     <Card className={classes.root}>
@@ -33,22 +51,21 @@ export default function AwardsandCerts() {
         <Typography className={classes.title} color="textSecondary" gutterBottom>
           Awards and Certifications
         </Typography>
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-          facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-          gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-          donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-          Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-          imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-          arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-          donec massa sapien faucibus et molestie ac.
-        </Typography>
+       
+        <Stepper nonLinear orientation="vertical">
+        {steps.map((data, i) => (
+          <Step key={data} active={true}>
+            <StepLabel>{data}</StepLabel>
+            <StepContent>
+              <Typography>{Experiencedata[i]}</Typography>
+              <div className={classes.actionsContainer}></div>
+            </StepContent>
+          </Step>
+        ))}
+        </Stepper>
+
+
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
     </Card>
   );
 }

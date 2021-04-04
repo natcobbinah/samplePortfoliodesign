@@ -5,6 +5,12 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+import StepContent from '@material-ui/core/StepContent';
+import { withStyles } from '@material-ui/core/styles';
+import Slider from '@material-ui/core/Slider';
 
 const useStyles = makeStyles({
   root: {
@@ -23,32 +29,84 @@ const useStyles = makeStyles({
   },
 });
 
+const PrettoSlider = withStyles({
+  root: {
+    color: '#52af77',
+    height: 8,
+  },
+  thumb: {
+    height: 24,
+    width: 24,
+    backgroundColor: '#fff',
+    border: '2px solid currentColor',
+    marginTop: -8,
+    marginLeft: -12,
+    '&:focus, &:hover, &$active': {
+      boxShadow: 'inherit',
+    },
+  },
+  active: {},
+  valueLabel: {
+    left: 'calc(-50% + 4px)',
+  },
+  track: {
+    height: 8,
+    borderRadius: 4,
+  },
+  rail: {
+    height: 8,
+    borderRadius: 4,
+  },
+})(Slider);
+
+function skillsContent(){
+  return[
+    'Java',
+    'SQL/NOSQL',
+    'Version Control',
+    'SPA Frameworks',
+    'Microcontrollers'
+  ]
+}
+
+const  skillsData =  [  
+             'JSP, JakartaEE, Springboot, MicroServices,Rest HATEOS',
+             'MySQL, MSSQL, Postgres, Oracle,mongoDB',
+             'Git, SubVersion',
+             'React, Angular, JavaScript, TypeScript',
+             'Arduino, PIC, Proteus'
+    ]
+
 export default function Skills() {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
+  const steps = skillsContent();
 
   return (
     <Card className={classes.root}>
       <CardContent>
         <Typography className={classes.title} color="textSecondary" gutterBottom>
-          Skills
+          Skills, Tools and Technologies
         </Typography>
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-          ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-          facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-          gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-          donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-          Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-          imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-          arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-          donec massa sapien faucibus et molestie ac.
-        </Typography>
+        
+        <Stepper nonLinear orientation="vertical">
+        {steps.map((data, i) => (
+          <Step key={data} active={true}>
+            <StepLabel>{data}</StepLabel>
+            <StepContent>
+              <Typography>{skillsData[i]}</Typography>
+              {i === 0 ?  <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={75} valueLabelDisplay="on"/> : 
+               i === 1 ?  <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={75} valueLabelDisplay="on"/> : 
+               i === 2 ?  <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={70} valueLabelDisplay="on"/> : 
+               i === 3 ?  <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={70} valueLabelDisplay="on"/> : 
+               i === 4 ?  <PrettoSlider valueLabelDisplay="auto" aria-label="pretto slider" defaultValue={60} valueLabelDisplay="on"/> :
+               "Nothing" 
+              }
+              <div className={classes.actionsContainer}></div>
+            </StepContent>
+          </Step>
+        ))}
+        </Stepper>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
-      </CardActions>
     </Card>
   );
 }
