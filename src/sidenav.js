@@ -30,6 +30,7 @@ import FunSport from './funsport'
 import Skills from './skills'
 import Experience from './experience'
 import AwardsandCerts from './awardsandcerts'
+import SampleProjectsDemo from './sampleProjects'
 
 const portfolioIcons =[
     <NaturePeopleSharpIcon/>,
@@ -124,7 +125,10 @@ export default function MiniDrawer() {
         <Experience/>
 
         <div className={classes.toolbar} />
-        <AwardsandCerts/>
+        <AwardsandCerts />
+        
+        <div className={classes.toolbar} />
+        <SampleProjectsDemo/>
       </main>
     </div>
   );
