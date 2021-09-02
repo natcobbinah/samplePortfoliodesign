@@ -71,12 +71,12 @@ const sampleProjectImages = [
     Morse-code-generator
   </a>,
 
-  <a href="https://https://www.npmjs.com/package/braille-code-generator">
+  <a href="https://www.npmjs.com/package/braille-code-generator">
     Braille-code-generator
   </a>,
 
-  <a href="https://sourceforge.net/u/fmg3ckali/profile">Sourceforge</a> && (
-    <a href="https://github.com/natcobbinah">Github</a>
+  <a href="https://www.sourceforge.net/u/fmg3ckali/profile">Sourceforge</a> && (
+    <a href="https://www.github.com/natcobbinah">Github</a>
   ),
 ];
 
