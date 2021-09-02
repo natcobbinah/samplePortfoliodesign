@@ -44,7 +44,7 @@ function sampleProjectNames() {
 const sampleProjectImages = [
   `Computes the true vertical depth, horizontal deviation at the end of build, 
               total measured depth and the various angles and radius given the kick-off point,
-              build-up rate and other required data`,
+              build-up rate and other required data <a href="https://www.npmjs.com/package/ddrilling">ddrilling</a>`,
 
   `For solving systems of equations with two or more unknown variables , 
              using gaussian and gauss-jordan elimination to solve the problems in its
@@ -67,8 +67,8 @@ const sampleProjectImages = [
             clinic which assist in the contribution of making a dental clinic reliable. Supports sms messaging, booking
             appointments, and communication over a local area intranet`,
 
-  `${https://www.npmjs.com/package/morse-code-generator}`,
-  `${https://https://www.npmjs.com/package/braille-code-generator}`,
+  `<a href="https://www.npmjs.com/package/morse-code-generator">morse-code-generator</a>`,
+  `<a href="https://https://www.npmjs.com/package/braille-code-generator">braille-code-generator</a>}`,
   ``,
 
   `https://sourceforge.net/u/fmg3ckali/profile &&
